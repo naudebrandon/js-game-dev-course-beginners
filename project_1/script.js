@@ -19,7 +19,10 @@ function animate(){
     // ctx.fillRect(50,50,100,100);
     // s--> Source | d--> Destination
     // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
-    ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+
+    let position = Math.floor(gameFrame/staggerFrames) % 6;
+    frameX = spriteWidth * position;
+    ctx.drawImage(playerImage, frameX , frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
     if (gameFrame % staggerFrames == 0){
         if (frameX < 6) frameX++;
         else frameX = 0;
